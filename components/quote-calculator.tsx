@@ -161,7 +161,7 @@ export default function QuoteCalculator() {
       </div>
 
       {/* Form Card */}
-      <div className="bg-card rounded-3xl shadow-xl p-4 sm:p-8 md:p-12">
+      <div className="bg-card rounded-3xl shadow-xl p-6 sm:p-8 md:p-12">
         {/* Step 1: Dates */}
         {currentStep === 1 && (
           <div className="space-y-6 sm:space-y-8">
