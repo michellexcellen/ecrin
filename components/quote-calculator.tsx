@@ -171,7 +171,7 @@ export default function QuoteCalculator() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-slate mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-slate mb-2">
                     Date d'arrivée
                   </label>
                   <input
@@ -179,11 +179,11 @@ export default function QuoteCalculator() {
                     value={checkIn}
                     onChange={(e) => setCheckIn(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
+                    className="w-full px-2 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-base border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-slate mb-2">
                     Date de départ
                   </label>
                   <input
@@ -191,7 +191,7 @@ export default function QuoteCalculator() {
                     value={checkOut}
                     onChange={(e) => setCheckOut(e.target.value)}
                     min={checkIn || new Date().toISOString().split('T')[0]}
-                    className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
+                    className="w-full px-2 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-base border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
                   />
                 </div>
               </div>
