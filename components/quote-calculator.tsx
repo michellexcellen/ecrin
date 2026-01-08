@@ -131,9 +131,9 @@ export default function QuoteCalculator() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto px-4 sm:px-0">
       {/* Progress Steps */}
-      <div className="mb-8 sm:mb-12 overflow-x-auto px-4 sm:px-0 -mx-4 sm:mx-0">
+      <div className="mb-8 sm:mb-12 overflow-x-auto -mx-4 sm:mx-0">
         <div className="flex items-center justify-center min-w-max px-4 sm:px-0">
           {steps.map((step, index) => (
             <div key={step.id} className="flex items-center flex-shrink-0">
