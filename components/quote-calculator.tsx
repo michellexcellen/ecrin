@@ -133,38 +133,38 @@ export default function QuoteCalculator() {
   return (
     <div className="max-w-3xl mx-auto">
       {/* Progress Steps */}
-      <div className="flex items-center justify-center mb-12">
+      <div className="flex items-center justify-center mb-8 sm:mb-12 overflow-x-auto pb-2">
         {steps.map((step, index) => (
-          <div key={step.id} className="flex items-center">
+          <div key={step.id} className="flex items-center flex-shrink-0">
             <button
               onClick={() => setCurrentStep(step.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${currentStep === step.id
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-full transition-all ${currentStep === step.id
                 ? "bg-gold text-cream"
                 : currentStep > step.id
                   ? "bg-gold/20 text-gold"
                   : "bg-cream text-taupe"
                 }`}
             >
-              <step.icon className="w-4 h-4" />
-              <span className="hidden sm:inline font-medium">{step.title}</span>
+              <step.icon className="w-4 h-4 flex-shrink-0" />
+              <span className="text-xs sm:text-sm font-medium whitespace-nowrap">{step.title}</span>
             </button>
             {index < steps.length - 1 && (
-              <div className={`w-12 h-0.5 mx-2 ${currentStep > step.id ? "bg-gold" : "bg-border"}`} />
+              <div className={`w-6 sm:w-12 h-0.5 mx-1 sm:mx-2 flex-shrink-0 ${currentStep > step.id ? "bg-gold" : "bg-border"}`} />
             )}
           </div>
         ))}
       </div>
 
       {/* Form Card */}
-      <div className="bg-card rounded-3xl shadow-xl p-8 md:p-12">
+      <div className="bg-card rounded-3xl shadow-xl p-4 sm:p-8 md:p-12">
         {/* Step 1: Dates */}
         {currentStep === 1 && (
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <div>
-              <h3 className="font-serif text-2xl text-slate mb-2">Sélectionnez vos dates</h3>
+              <h3 className="font-serif text-xl sm:text-2xl text-slate mb-2">Sélectionnez vos dates</h3>
               <p className="text-taupe text-sm mb-6">Choisissez votre période de séjour (minimum 2 nuits)</p>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-slate mb-2">
                     Date d'arrivée
@@ -174,7 +174,7 @@ export default function QuoteCalculator() {
                     value={checkIn}
                     onChange={(e) => setCheckIn(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
+                    className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
                   />
                 </div>
                 <div>
@@ -186,7 +186,7 @@ export default function QuoteCalculator() {
                     value={checkOut}
                     onChange={(e) => setCheckOut(e.target.value)}
                     min={checkIn || new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
+                    className="w-full px-3 sm:px-4 py-3 text-sm sm:text-base border-2 border-border rounded-xl focus:border-gold focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -302,8 +302,8 @@ export default function QuoteCalculator() {
 
         {/* Step 2: Guests */}
         {currentStep === 2 && (
-          <div className="space-y-8">
-            <h3 className="font-serif text-2xl text-slate mb-6">Combien de voyageurs ?</h3>
+          <div className="space-y-6 sm:space-y-8">
+            <h3 className="font-serif text-xl sm:text-2xl text-slate mb-6">Combien de voyageurs ?</h3>
             <div className="space-y-6">
               <div className="flex items-center justify-between p-4 bg-cream rounded-xl">
                 <div>
@@ -354,8 +354,8 @@ export default function QuoteCalculator() {
 
         {/* Step 3: Options */}
         {currentStep === 3 && (
-          <div className="space-y-8">
-            <h3 className="font-serif text-2xl text-slate mb-6">Inclus dans votre séjour</h3>
+          <div className="space-y-6 sm:space-y-8">
+            <h3 className="font-serif text-xl sm:text-2xl text-slate mb-6">Inclus dans votre séjour</h3>
             <div className="space-y-4">
               <div className="p-6 rounded-xl border-2 border-gold bg-gold/5">
                 <div className="flex items-center gap-4">
@@ -386,8 +386,8 @@ export default function QuoteCalculator() {
 
         {/* Step 4: Client Information */}
         {currentStep === 4 && (
-          <div className="space-y-8">
-            <h3 className="font-serif text-2xl text-slate mb-6">Vos coordonnées</h3>
+          <div className="space-y-6 sm:space-y-8">
+            <h3 className="font-serif text-xl sm:text-2xl text-slate mb-6">Vos coordonnées</h3>
             <p className="text-taupe text-sm mb-6">
               Remplissez vos informations pour générer automatiquement votre contrat de location.
             </p>

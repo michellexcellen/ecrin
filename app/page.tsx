@@ -59,26 +59,26 @@ export default function HomePage() {
         <AboutSection />
 
         {/* Features Overview */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <span className="text-gold font-medium tracking-[0.2em] uppercase text-sm">Découvrez</span>
-              <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl text-slate">
+              <h2 className="mt-4 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate px-4">
                 Votre séjour en Alsace
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {features.map((feature) => (
                 <Link
                   key={feature.href}
                   href={feature.href}
-                  className="group p-8 bg-cream rounded-2xl hover:bg-gold/10 transition-all hover:scale-105 duration-300"
+                  className="group p-6 sm:p-8 bg-cream rounded-2xl hover:bg-gold/10 transition-all hover:scale-105 duration-300"
                 >
-                  <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold group-hover:scale-110 transition-all">
-                    <feature.icon className="w-6 h-6 text-gold group-hover:text-cream transition-colors" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gold/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-gold group-hover:scale-110 transition-all">
+                    <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold group-hover:text-cream transition-colors" />
                   </div>
-                  <h3 className="font-serif text-xl text-slate mb-3">{feature.title}</h3>
+                  <h3 className="font-serif text-lg sm:text-xl text-slate mb-2 sm:mb-3">{feature.title}</h3>
                   <p className="text-taupe text-sm leading-relaxed">{feature.description}</p>
                 </Link>
               ))}

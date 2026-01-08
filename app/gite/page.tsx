@@ -157,7 +157,7 @@ export default function GitePage() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative h-[60vh] min-h-[500px] bg-anthracite">
+        <section className="relative h-[60vh] min-h-[400px] sm:min-h-[500px] bg-anthracite">
           <div className="absolute inset-0">
             <Image
               src="/images/salon_nuit.jpeg"
@@ -167,22 +167,22 @@ export default function GitePage() {
               priority
             />
           </div>
-          <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
-            <span className="text-gold font-serif text-lg tracking-[0.3em] uppercase mb-4">Le Gîte</span>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white max-w-4xl">
+          <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
+            <span className="text-gold font-serif text-base sm:text-lg tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-3 sm:mb-4">Le Gîte</span>
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white max-w-4xl px-2">
               Un Appartement Pensé pour Votre Confort
             </h1>
-            <p className="mt-6 text-lg text-white/90 max-w-2xl">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-white/90 max-w-2xl px-4">
               Prestations haut de gamme dans un cadre enchanteur avec vue sur le vignoble
             </p>
           </div>
         </section>
 
         {/* Description Section */}
-        <section className="py-20 bg-cream">
+        <section className="py-12 sm:py-16 md:py-20 bg-cream">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center mb-16">
-              <h2 className="font-serif text-3xl md:text-4xl text-slate mb-6">
+            <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 md:mb-16">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-slate mb-4 sm:mb-6 px-4">
                 Un Écrin au Cœur du Vignoble
               </h2>
               <p className="text-taupe text-lg leading-relaxed mb-4">
@@ -198,14 +198,14 @@ export default function GitePage() {
             </div>
 
             {/* Features Grid */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12 md:mb-16">
               {features.map((feature) => (
-                <div key={feature.label} className="bg-white p-6 rounded-2xl text-center">
-                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <feature.icon className="w-6 h-6 text-gold" />
+                <div key={feature.label} className="bg-white p-5 sm:p-6 rounded-2xl text-center">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <feature.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
                   </div>
-                  <h3 className="font-medium text-slate mb-1">{feature.label}</h3>
-                  <p className="text-sm text-taupe">{feature.desc}</p>
+                  <h3 className="font-medium text-slate mb-1 text-sm sm:text-base">{feature.label}</h3>
+                  <p className="text-xs sm:text-sm text-taupe">{feature.desc}</p>
                 </div>
               ))}
             </div>
@@ -213,16 +213,16 @@ export default function GitePage() {
         </section>
 
         {/* Rooms Grid */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <span className="text-gold font-medium tracking-[0.2em] uppercase text-sm">Les Espaces</span>
-              <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl text-slate">
+              <h2 className="mt-4 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate px-4">
                 Chambres et Pièces de Vie
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {rooms.map((room, index) => (
                 <article
                   key={room.title}
@@ -240,12 +240,12 @@ export default function GitePage() {
                       } group-hover:scale-105 transition-transform duration-700`}
                     />
                   </div>
-                  <div className="p-8">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="font-serif text-2xl text-slate">{room.title}</h3>
-                      <span className="text-sm text-gold font-medium">{room.size}</span>
+                  <div className="p-6 sm:p-8">
+                    <div className="flex justify-between items-start mb-2 sm:mb-3">
+                      <h3 className="font-serif text-xl sm:text-2xl text-slate">{room.title}</h3>
+                      <span className="text-xs sm:text-sm text-gold font-medium">{room.size}</span>
                     </div>
-                    <p className="text-taupe leading-relaxed">{room.description}</p>
+                    <p className="text-taupe leading-relaxed text-sm sm:text-base">{room.description}</p>
                   </div>
                 </article>
               ))}
@@ -254,20 +254,20 @@ export default function GitePage() {
         </section>
 
         {/* Main Services Section */}
-        <section className="py-20 bg-cream">
+        <section className="py-12 sm:py-16 md:py-20 bg-cream">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <span className="text-gold font-medium tracking-[0.2em] uppercase text-sm">Prestations</span>
-              <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl text-slate">
+              <h2 className="mt-4 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate px-4">
                 Équipements d'Exception
               </h2>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-10 sm:space-y-12">
               {mainServices.map((service, index) => (
                 <article
                   key={service.title}
-                  className={`grid lg:grid-cols-2 gap-8 items-center ${
+                  className={`grid lg:grid-cols-2 gap-6 sm:gap-8 items-center ${
                     index % 2 === 1 ? "lg:grid-flow-dense" : ""
                   }`}
                 >
@@ -284,15 +284,15 @@ export default function GitePage() {
 
                   <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
                     <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 ${
+                      className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 ${
                         service.highlight ? "bg-gold" : "bg-gold/10"
                       }`}
                     >
-                      <service.icon className={`w-8 h-8 ${service.highlight ? "text-cream" : "text-gold"}`} />
+                      <service.icon className={`w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 ${service.highlight ? "text-cream" : "text-gold"}`} />
                     </div>
-                    <h3 className="font-serif text-3xl md:text-4xl text-slate mb-3">{service.title}</h3>
-                    <p className="text-gold font-medium mb-4">{service.subtitle}</p>
-                    <p className="text-taupe text-lg leading-relaxed">{service.description}</p>
+                    <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-slate mb-2 sm:mb-3">{service.title}</h3>
+                    <p className="text-gold font-medium mb-3 sm:mb-4 text-sm sm:text-base">{service.subtitle}</p>
+                    <p className="text-taupe text-base sm:text-lg leading-relaxed">{service.description}</p>
                   </div>
                 </article>
               ))}
@@ -301,11 +301,11 @@ export default function GitePage() {
         </section>
 
         {/* Details Section */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start">
               <div>
-                <h2 className="font-serif text-3xl text-slate mb-6">Les Chambres</h2>
+                <h2 className="font-serif text-2xl sm:text-3xl text-slate mb-4 sm:mb-6">Les Chambres</h2>
                 <div className="space-y-4 text-taupe leading-relaxed">
                   <p>
                     Une <strong>première chambre de 12 m²</strong> comporte un lit de 160 cm avec une TV Samsung Frame
@@ -327,7 +327,7 @@ export default function GitePage() {
               </div>
 
               <div>
-                <h2 className="font-serif text-3xl text-slate mb-6">Cuisine & Commodités</h2>
+                <h2 className="font-serif text-2xl sm:text-3xl text-slate mb-4 sm:mb-6">Cuisine & Commodités</h2>
                 <div className="space-y-4 text-taupe leading-relaxed">
                   <p>
                     La <strong>cuisine entièrement équipée</strong> dispose de tout le nécessaire : vaisselle complète,
@@ -348,29 +348,29 @@ export default function GitePage() {
         </section>
 
         {/* Amenities Grid */}
-        <section className="py-20 bg-cream">
+        <section className="py-12 sm:py-16 md:py-20 bg-cream">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-12 md:mb-16">
               <span className="text-gold font-medium tracking-[0.2em] uppercase text-sm">Tout Compris</span>
-              <h2 className="mt-4 font-serif text-3xl md:text-4xl lg:text-5xl text-slate">
+              <h2 className="mt-4 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-slate px-4">
                 Tous les Équipements
               </h2>
-              <p className="mt-4 text-taupe text-lg max-w-2xl mx-auto">
+              <p className="mt-4 text-taupe text-base sm:text-lg max-w-2xl mx-auto px-4">
                 Tout a été pensé pour votre confort et pour simplifier votre séjour
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               {amenities.map((amenity) => (
                 <div
                   key={amenity.label}
-                  className="bg-white p-6 rounded-2xl text-center hover:bg-gold/10 transition-colors"
+                  className="bg-white p-4 sm:p-6 rounded-2xl text-center hover:bg-gold/10 transition-colors"
                 >
-                  <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <amenity.icon className="w-6 h-6 text-gold" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <amenity.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
                   </div>
-                  <h3 className="font-medium text-slate mb-1">{amenity.label}</h3>
-                  <p className="text-sm text-taupe">{amenity.desc}</p>
+                  <h3 className="font-medium text-slate mb-1 text-xs sm:text-sm md:text-base">{amenity.label}</h3>
+                  <p className="text-xs sm:text-sm text-taupe">{amenity.desc}</p>
                 </div>
               ))}
             </div>
@@ -378,22 +378,22 @@ export default function GitePage() {
         </section>
 
         {/* Included Services */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="bg-cream p-8 md:p-12 rounded-3xl">
-              <div className="text-center mb-12">
-                <h2 className="font-serif text-3xl md:text-4xl text-slate mb-4">Services Inclus</h2>
+            <div className="bg-cream p-6 sm:p-8 md:p-12 rounded-3xl">
+              <div className="text-center mb-8 sm:mb-10 md:mb-12">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-slate mb-3 sm:mb-4 px-4">Services Inclus</h2>
                 <p className="text-taupe text-lg">
                   Pour un séjour sans surprise, ces prestations sont comprises dans le tarif
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {includedServices.map((service) => (
-                  <div key={service} className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-6 h-6 bg-gold rounded-full flex items-center justify-center mt-1">
+                  <div key={service} className="flex items-start gap-3 sm:gap-4">
+                    <div className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 bg-gold rounded-full flex items-center justify-center mt-0.5 sm:mt-1">
                       <svg
-                        className="w-4 h-4 text-cream"
+                        className="w-3 h-3 sm:w-4 sm:h-4 text-cream"
                         fill="none"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -404,7 +404,7 @@ export default function GitePage() {
                         <path d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-slate font-medium">{service}</span>
+                    <span className="text-slate font-medium text-sm sm:text-base">{service}</span>
                   </div>
                 ))}
               </div>
@@ -413,10 +413,10 @@ export default function GitePage() {
         </section>
 
         {/* Important Info */}
-        <section className="py-16 bg-gold/10">
+        <section className="py-10 sm:py-12 md:py-16 bg-gold/10">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="bg-white p-8 md:p-12 rounded-3xl">
-              <h3 className="font-serif text-2xl text-slate mb-6 text-center">Informations Importantes</h3>
+            <div className="bg-white p-6 sm:p-8 md:p-12 rounded-3xl">
+              <h3 className="font-serif text-xl sm:text-2xl text-slate mb-4 sm:mb-6 text-center px-4">Informations Importantes</h3>
               <div className="space-y-4 text-taupe text-center max-w-3xl mx-auto">
                 <p>
                   L'accueil se fait par les <strong>hôtes de la maison</strong>. L'appartement garantit un très bon
@@ -433,22 +433,22 @@ export default function GitePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-anthracite text-white text-center">
+        <section className="py-12 sm:py-16 md:py-20 bg-anthracite text-white text-center">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-3xl md:text-4xl mb-6">Prêt à Réserver ?</h2>
-            <p className="text-white/80 text-lg mb-8">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 px-4">Prêt à Réserver ?</h2>
+            <p className="text-white/80 text-base sm:text-lg mb-6 sm:mb-8 px-4">
               Découvrez la région alsacienne ou demandez directement votre devis personnalisé
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Link
                 href="/tourisme"
-                className="px-8 py-4 border-2 border-white text-white font-medium tracking-wide rounded-full hover:bg-white hover:text-slate transition-all"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-white text-white font-medium tracking-wide rounded-full hover:bg-white hover:text-slate transition-all text-center"
               >
                 Découvrir la Région
               </Link>
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-gold text-cream font-medium tracking-wide rounded-full hover:bg-gold-dark transition-all"
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gold text-cream font-medium tracking-wide rounded-full hover:bg-gold-dark transition-all text-center"
               >
                 Demander un Devis
               </Link>
