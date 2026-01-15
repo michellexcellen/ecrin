@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
+  metadataBase: new URL("https://ecrin-vignoble.fr"),
   robots: {
     index: true,
     follow: true,
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 const jsonLd = {

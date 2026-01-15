@@ -57,7 +57,7 @@ export default function AboutSection() {
               <div className="space-y-4">
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/salon.jpeg"
+                    src="/images/salon.webp"
                     alt="Salon lumineux avec poutres en bois et canapé confortable"
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"

@@ -180,6 +180,8 @@ export default function TourismePage() {
               fill
               className="object-cover opacity-40"
               priority
+              quality={60}
+              sizes="100vw"
             />
           </div>
           <div className="relative h-full flex flex-col items-center justify-center text-center px-4">
@@ -239,6 +241,7 @@ export default function TourismePage() {
                       src={village.image}
                       alt={`${village.name} - Village alsacien à ${village.distance} de Wettolsheim`}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute top-4 right-4 bg-gold text-cream px-4 py-2 rounded-full text-sm font-medium">

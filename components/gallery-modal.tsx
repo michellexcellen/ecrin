@@ -5,8 +5,8 @@ import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 
 const photos = [
-  { src: "/images/salon.jpeg", alt: "Salon lumineux avec poutres en bois et canapé confortable", category: "Salon" },
-  { src: "/images/salon_nuit.jpeg", alt: "Salon de nuit avec éclairage d'ambiance", category: "Salon" },
+  { src: "/images/salon.webp", alt: "Salon lumineux avec poutres en bois et canapé confortable", category: "Salon" },
+  { src: "/images/salon_nuit.webp", alt: "Salon de nuit avec éclairage d'ambiance", category: "Salon" },
   { src: "/images/salon2.jpeg", alt: "Vue alternative du salon", category: "Salon" },
   { src: "/images/cuisine.jpeg", alt: "Cuisine moderne équipée avec hublot design", category: "Cuisine" },
   { src: "/images/chambre1.jpeg", alt: "Chambre 1 cosy avec lit double et éclairage tamisé", category: "Chambres" },

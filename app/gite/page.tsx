@@ -62,7 +62,7 @@ const rooms = [
     title: "Salon",
     size: "Spacieux",
     description: "TV Samsung 50 pouces, canapé convertible 160 cm",
-    image: "/images/salon.jpeg",
+    image: "/images/salon.webp",
     alt: "Salon chaleureux avec TV 50 pouces et poutres apparentes",
   },
   {
