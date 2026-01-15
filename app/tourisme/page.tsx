@@ -175,7 +175,7 @@ export default function TourismePage() {
         <section className="relative h-[60vh] min-h-[500px] bg-anthracite">
           <div className="absolute inset-0">
             <Image
-              src="/images/fall.jpg"
+              src="/images/fall.webp"
               alt="Vue panoramique sur le vignoble alsacien depuis Wettolsheim avec vue sur la Forêt Noire"
               fill
               className="object-cover opacity-40"

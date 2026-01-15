@@ -160,7 +160,7 @@ export default function GitePage() {
         <section className="relative h-[60vh] min-h-[400px] sm:min-h-[500px] bg-anthracite">
           <div className="absolute inset-0">
             <Image
-              src="/images/salon_nuit.jpeg"
+              src="/images/salon_nuit.webp"
               alt="Intérieur du gîte L'Écrin du Vignoble - Salon lumineux avec vue sur le vignoble alsacien"
               fill
               className="object-cover opacity-40"

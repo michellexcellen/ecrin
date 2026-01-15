@@ -7,7 +7,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/salon.jpeg"
+          src="/images/salon.webp"
           alt="Salon chaleureux du gîte L'Écrin du Vignoble avec poutres apparentes et vue sur le vignoble"
           fill
           className="object-cover"
