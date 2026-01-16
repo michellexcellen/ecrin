@@ -9,12 +9,12 @@ export async function POST(req: Request) {
         // Generate the docx buffer
         const docBuffer = await generateContractDoc(data);
 
-        // Create transporter
+        // Create transporter using Gmail
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.GMAIL_USER,
-                pass: process.env.GMAIL_APP_PASSWORD,
+                user: process.env.GMAIL_USER, // Votre adresse Gmail (expéditeur)
+                pass: process.env.GMAIL_APP_PASSWORD, // Votre mot de passe d'application Gmail
             },
         });
 
@@ -22,12 +22,8 @@ export async function POST(req: Request) {
 
         // Mail options
         const mailOptions = {
-            from: '"Michou Gîte" <winkelmullerl@gmail.com>',
-            to: 'winkelmullerl@gmail.com', // Sending to the owner as requested
-            // Optionally CC the client? The user said "j'e veux l'envoyer sur un mail... à cette adresse", implies sending TO this address.
-            // Maybe I should send it to the client AND the owner? 
-            // User request: "à la place j eveux l'nvoyer sur un mail... envoi le mail à cette adresse: winkelmullerl@gmail.com"
-            // I will send IT TO that address.
+            from: '"Michou Gîte" <winkelmullerl@gmail.com>', // L'expéditeur DOIT être le compte Gmail authentifié
+            to: 'lexcellent.michel@orange.fr', // Le destinataire final (Orange)
             subject: `Nouveau Contrat de Location - ${data.clientLastName} ${data.clientFirstName}`,
             text: `
 Bonjour,
@@ -39,8 +35,7 @@ Détails du séjour :
 - Nombre de nuits : ${data.nights}
 - Prix total : ${data.totalPrice} €
 
-Cordialement,
-Le site Michou Gîte
+
       `,
             attachments: [
                 {
