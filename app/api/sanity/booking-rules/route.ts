@@ -24,13 +24,15 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { _id, defaultPricePerNight, defaultMinimumNights, cleaningFee } = body
+    const { _id, defaultPricePerNight, defaultMinimumNights, cleaningFee, touristTaxAdult, touristTaxChild } = body
 
     const doc = {
       _type: 'bookingRules',
       defaultPricePerNight: defaultPricePerNight || 150,
       defaultMinimumNights: defaultMinimumNights || 2,
       cleaningFee: cleaningFee || 60,
+      touristTaxAdult: touristTaxAdult !== undefined ? touristTaxAdult : 1.5,
+      touristTaxChild: touristTaxChild !== undefined ? touristTaxChild : 0,
     }
 
     let result

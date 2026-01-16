@@ -84,7 +84,7 @@ export default function AboutSection() {
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                   <Image
                     src="/images/jaccuzi2.jpeg"
-                    alt="Extérieur moderne du gîte L'Écrin du Vignobl"
+                    alt="Extérieur moderne du gîte l'écrin du vignoble"
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-700"
                   />

@@ -54,12 +54,20 @@ export default defineType({
       description: 'Montant du dépôt de garantie',
     },
     {
-      name: 'touristTaxPerPersonPerNight',
-      title: 'Taxe de séjour (€/pers/nuit)',
+      name: 'touristTaxAdult',
+      title: 'Taxe de séjour Adulte (€/pers/nuit)',
       type: 'number',
       validation: Rule => Rule.required().min(0).max(10),
       initialValue: 1.5,
-      description: 'Montant de la taxe de séjour par personne et par nuit',
+      description: 'Montant de la taxe de séjour par adulte et par nuit',
+    },
+    {
+      name: 'touristTaxChild',
+      title: 'Taxe de séjour Enfant (€/pers/nuit)',
+      type: 'number',
+      validation: Rule => Rule.required().min(0).max(10),
+      initialValue: 0,
+      description: 'Montant de la taxe de séjour par enfant et par nuit',
     },
     {
       name: 'cleaningFee',

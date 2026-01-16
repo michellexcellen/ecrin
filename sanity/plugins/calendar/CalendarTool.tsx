@@ -46,6 +46,8 @@ export default function CalendarTool() {
   const [defaultPrice, setDefaultPrice] = useState<number>(150)
   const [defaultMinNights, setDefaultMinNights] = useState<number>(2)
   const [cleaningFee, setCleaningFee] = useState<number>(60)
+  const [touristTaxAdult, setTouristTaxAdult] = useState<number>(1.5)
+  const [touristTaxChild, setTouristTaxChild] = useState<number>(0)
   const [bookingRulesId, setBookingRulesId] = useState<string | null>(null)
 
   // Règles de prix
@@ -90,6 +92,8 @@ export default function CalendarTool() {
         setDefaultPrice(result.rules.defaultPricePerNight || 150)
         setDefaultMinNights(result.rules.defaultMinimumNights || 2)
         setCleaningFee(result.rules.cleaningFee || 60)
+        setTouristTaxAdult(result.rules.touristTaxAdult !== undefined ? result.rules.touristTaxAdult : 1.5)
+        setTouristTaxChild(result.rules.touristTaxChild !== undefined ? result.rules.touristTaxChild : 0)
         setBookingRulesId(result.rules._id)
       }
     } catch (error) {
@@ -107,6 +111,8 @@ export default function CalendarTool() {
           defaultPricePerNight: defaultPrice,
           defaultMinimumNights: defaultMinNights,
           cleaningFee,
+          touristTaxAdult,
+          touristTaxChild,
         }),
       })
       const result = await response.json()
@@ -902,6 +908,28 @@ export default function CalendarTool() {
                     value={cleaningFee}
                     onChange={(e) => setCleaningFee(Number(e.currentTarget.value))}
                     placeholder="60"
+                  />
+                </Stack>
+
+                <Stack space={3}>
+                  <Label>Taxe de séjour Adulte (€/nuit)</Label>
+                  <TextInput
+                    type="number"
+                    value={touristTaxAdult}
+                    onChange={(e) => setTouristTaxAdult(Number(e.currentTarget.value))}
+                    placeholder="1.5"
+                    step={0.1}
+                  />
+                </Stack>
+
+                <Stack space={3}>
+                  <Label>Taxe de séjour Enfant (€/nuit)</Label>
+                  <TextInput
+                    type="number"
+                    value={touristTaxChild}
+                    onChange={(e) => setTouristTaxChild(Number(e.currentTarget.value))}
+                    placeholder="0"
+                    step={0.1}
                   />
                 </Stack>
 

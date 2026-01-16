@@ -17,7 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "L'Écrin du Vignobl | Gîte de Charme et Spa en Alsace - Wettolsheim",
+  title: "l'écrin du vignoble | Gîte de Charme et Spa en Alsace - Wettolsheim",
   description:
     "Découvrez notre gîte haut de gamme 4 personnes avec jacuzzi privatif au cœur du vignoble alsacien. À 10 min d'Eguisheim, 5 km de Colmar. Prestations luxe, vue vignoble.",
   keywords: [
@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     "gîte de charme",
     "Wettolsheim",
   ],
-  authors: [{ name: "L'Écrin du Vignobl" }],
+  authors: [{ name: "l'écrin du vignoble" }],
   openGraph: {
-    title: "L'Écrin du Vignobl | Gîte de Charme et Spa en Alsace",
+    title: "l'écrin du vignoble | Gîte de Charme et Spa en Alsace",
     description:
       "Gîte haut de gamme 4 personnes avec jacuzzi privatif au cœur du vignoble alsacien. Vue imprenable, prestations luxe.",
     url: "https://ecrin-vignoble.fr",
-    siteName: "L'Écrin du Vignobl",
+    siteName: "l'écrin du vignoble",
     locale: "fr_FR",
     type: "website",
   },
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
-  name: "L'Écrin du Vignobl",
+  name: "l'écrin du vignoble",
   description:
     "Gîte de charme 4 personnes avec jacuzzi privatif au cœur du vignoble alsacien, à 10 minutes d'Eguisheim.",
   address: {

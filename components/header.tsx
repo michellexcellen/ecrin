@@ -38,7 +38,7 @@ export default function Header() {
           <Link href="#accueil" className="flex-shrink-0">
             <span className={`font-serif text-2xl font-bold transition-colors ${isScrolled ? "text-slate" : "text-white"
               }`}>
-              L'Écrin du Vignobl
+              l'écrin du vignoble
             </span>
           </Link>
 

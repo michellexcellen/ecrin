@@ -24,7 +24,7 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Le Gîte - L'Écrin du Vignobl | Appartement 4 Personnes avec Jacuzzi en Alsace",
+  title: "Le Gîte - l'écrin du vignoble | Appartement 4 Personnes avec Jacuzzi en Alsace",
   description:
     "Découvrez notre gîte haut de gamme de 4 personnes à Wettolsheim : 2 chambres confortables, salon spacieux avec TV 50', cuisine équipée, jacuzzi extérieur 6 places, climatisation Daikin, WiFi fibre. Linge fourni, lits faits à l'arrivée.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "gîte jacuzzi Alsace",
   ],
   openGraph: {
-    title: "Le Gîte - L'Écrin du Vignobl | 4 Personnes avec Jacuzzi",
+    title: "Le Gîte - l'écrin du vignoble | 4 Personnes avec Jacuzzi",
     description:
       "Gîte haut de gamme 4 personnes : 2 chambres, salon spacieux, cuisine équipée, jacuzzi, climatisation, WiFi fibre.",
     type: "website",
@@ -44,6 +44,20 @@ export const metadata: Metadata = {
 }
 
 const rooms = [
+  {
+    title: "Cuisine",
+    size: "Équipée",
+    description: "Tout le nécessaire fourni : vaisselle, électroménager, condiments",
+    image: "/images/cuisine.jpeg",
+    alt: "Cuisine moderne entièrement équipée avec hublot design",
+  },
+  {
+    title: "Salon",
+    size: "Spacieux",
+    description: "TV Samsung 50 pouces, canapé convertible 160 cm",
+    image: "/images/salon.webp",
+    alt: "Salon chaleureux avec TV 50 pouces et poutres apparentes",
+  },
   {
     title: "Chambre 1",
     size: "12 m²",
@@ -57,20 +71,6 @@ const rooms = [
     description: "Deux lits de 90 cm pouvant former un grand lit double",
     image: "/images/chambre2.jpeg",
     alt: "Chambre sous combles avec deux lits simples modulables",
-  },
-  {
-    title: "Salon",
-    size: "Spacieux",
-    description: "TV Samsung 50 pouces, canapé convertible 160 cm",
-    image: "/images/salon.webp",
-    alt: "Salon chaleureux avec TV 50 pouces et poutres apparentes",
-  },
-  {
-    title: "Cuisine",
-    size: "Équipée",
-    description: "Tout le nécessaire fourni : vaisselle, électroménager, condiments",
-    image: "/images/cuisine.jpeg",
-    alt: "Cuisine moderne entièrement équipée avec hublot design",
   },
   {
     title: "Salle de bain",
@@ -161,7 +161,7 @@ export default function GitePage() {
           <div className="absolute inset-0">
             <Image
               src="/images/salon_nuit.webp"
-              alt="Intérieur du gîte L'Écrin du Vignobl - Salon lumineux avec vue sur le vignoble alsacien"
+              alt="Intérieur du gîte l'écrin du vignoble - Salon lumineux avec vue sur le vignoble alsacien"
               fill
               className="object-cover opacity-40"
               priority
@@ -188,7 +188,7 @@ export default function GitePage() {
                 Un Écrin au Cœur du Vignoble
               </h2>
               <p className="text-taupe text-lg leading-relaxed mb-4">
-                L'Écrin du Vignobl est prévu pour <strong>4 personnes</strong> et idéal pour une famille. Situé à
+                l'écrin du vignoble est prévu pour <strong>4 personnes</strong> et idéal pour une famille. Situé à
                 Wettolsheim au cœur du vignoble et à <strong>10 minutes à pied d'Eguisheim</strong>, un des plus beaux
                 villages de France. Vous êtes à <strong>5 km du centre de Colmar</strong>.
               </p>

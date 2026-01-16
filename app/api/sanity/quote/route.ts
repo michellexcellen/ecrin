@@ -165,8 +165,9 @@ export async function POST(request: Request) {
     }
 
     // Calculer la taxe de séjour
-    const touristTaxRate = bookingRules?.touristTaxPerPersonPerNight || 1.5
-    const touristTax = nights * totalGuests * touristTaxRate
+    const touristTaxAdult = bookingRules?.touristTaxAdult !== undefined ? bookingRules.touristTaxAdult : 1.5
+    const touristTaxChild = bookingRules?.touristTaxChild !== undefined ? bookingRules.touristTaxChild : 0
+    const touristTax = nights * (adults * touristTaxAdult + children * touristTaxChild)
 
     // Frais de ménage
     const cleaningFee = bookingRules?.cleaningFee || 60

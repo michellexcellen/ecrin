@@ -5,7 +5,7 @@ export const client = createClient({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   apiVersion: '2024-01-01',
   useCdn: false, // Set to true in production for better performance
-  token: process.env.SANITY_API_TOKEN,
+  token: process.env.SANITY_API_WRITE_TOKEN,
 })
 
 // Types pour les données Sanity
@@ -54,7 +54,8 @@ export interface BookingRules {
   advanceBookingDays: number
   depositPercentage: number
   securityDeposit: number
-  touristTaxPerPersonPerNight: number
+  touristTaxAdult?: number
+  touristTaxChild?: number
   checkInTime: string
   checkOutTime: string
   cleaningFee: number

@@ -49,7 +49,7 @@ export default function Navbar() {
             <Link href="/" className="flex-shrink-0 relative z-50">
               <span className={`font-serif text-2xl font-bold transition-colors ${isMobileMenuOpen ? "text-white" : isScrolled ? "text-slate" : "text-white"
                 }`}>
-                L'Écrin du Vignobl
+                l'écrin du vignoble
               </span>
             </Link>
 
@@ -60,10 +60,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`text-sm font-medium tracking-wide transition-colors hover:text-gold ${pathname === link.href
-                      ? "text-gold"
-                      : isScrolled
-                        ? "text-slate"
-                        : "text-white"
+                    ? "text-gold"
+                    : isScrolled
+                      ? "text-slate"
+                      : "text-white"
                     }`}
                 >
                   {link.label}
@@ -94,8 +94,8 @@ export default function Navbar() {
       {/* Mobile Menu Full Screen Overlay */}
       <div
         className={`fixed inset-0 z-[60] md:hidden transition-all duration-300 ${isMobileMenuOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full pointer-events-none"
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 -translate-y-full pointer-events-none"
           }`}
       >
         {/* Backdrop */}
@@ -145,7 +145,7 @@ export default function Navbar() {
 
           {/* Decorative Element */}
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2">
-            <p className="text-white/50 text-sm tracking-widest uppercase">L'Écrin du Vignobl</p>
+            <p className="text-white/50 text-sm tracking-widest uppercase">l'écrin du vignoble</p>
           </div>
         </div>
       </div>

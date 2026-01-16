@@ -99,7 +99,7 @@ export async function generateContractDoc(data: ContractData): Promise<Buffer> {
                     new Paragraph({
                         children: [
                             new TextRun({
-                                text: "Gîte de charme en Alsace - 9 Résidence du Château Martinsbourg",
+                                text: "l'écrin du vignoble - 9 Résidence du Château Martinsbourg",
                                 font,
                                 size: 24,
                                 italics: true,
