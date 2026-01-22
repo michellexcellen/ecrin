@@ -2,8 +2,10 @@
 
 import { useState } from "react"
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import type { HomePageTestimonialsSection, HomePageTestimonial } from "@/lib/sanity"
 
-const testimonials = [
+// Témoignages par défaut
+const defaultTestimonials: HomePageTestimonial[] = [
   {
     name: "IChieh",
     location: "7 ans sur Airbnb",
@@ -34,8 +36,28 @@ const testimonials = [
   },
 ]
 
-export default function TestimonialsSection() {
+// Valeurs par défaut pour la section
+const defaultSection: HomePageTestimonialsSection = {
+  rating: "5,0",
+  reviewCount: "24 avis",
+  reviewPlatform: "sur Airbnb",
+  sectionTitle: "Ce que disent nos hôtes",
+  testimonials: defaultTestimonials,
+  airbnbLinkText: "Voir tous les avis sur Airbnb",
+  airbnbLink: "https://www.airbnb.fr/rooms/1281724811283528938/reviews?location=Wettolsheim&search_mode=regular_search&adults=1&check_in=2026-03-27&check_out=2026-04-01&children=0&infants=0&pets=0&source_impression_id=p3_1766854428_P3ltS9Cdc3CdNR-1&previous_page_section_name=1001&federated_search_id=3b7df167-02d6-41d1-b465-6127b33d6715&_set_bev_on_new_domain=1766854386_EAMmRjNDNjNWQ3ZW&set_everest_cookie_on_new_domain=1766854386.EAY2U1ZWY5NTcyOWY2Y2.lrw5o3lqnNUDYV1sxT8XbqgVbOYdlhh_U3AX9-OIBRM",
+}
+
+interface TestimonialsSectionProps {
+  data?: HomePageTestimonialsSection | null
+}
+
+export default function TestimonialsSection({ data }: TestimonialsSectionProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+
+  const section = { ...defaultSection, ...data }
+  const testimonials = section.testimonials && section.testimonials.length > 0
+    ? section.testimonials
+    : defaultTestimonials
 
   const next = () => setCurrentIndex((i) => (i + 1) % testimonials.length)
   const prev = () => setCurrentIndex((i) => (i - 1 + testimonials.length) % testimonials.length)
@@ -45,15 +67,15 @@ export default function TestimonialsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 rounded-full mb-8">
-            <span className="text-white font-medium">5,0</span>
+            <span className="text-white font-medium">{section.rating}</span>
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 fill-gold text-gold" />
               ))}
             </div>
-            <span className="text-white/70 text-sm">sur Airbnb • 24 avis</span>
+            <span className="text-white/70 text-sm">{section.reviewPlatform} • {section.reviewCount}</span>
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white">Ce que disent nos hôtes</h2>
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white">{section.sectionTitle}</h2>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
@@ -109,24 +131,26 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Voir tous les avis Airbnb */}
-          <div className="flex justify-center mt-12">
-            <a
-              href="https://www.airbnb.fr/rooms/1281724811283528938/reviews?location=Wettolsheim&search_mode=regular_search&adults=1&check_in=2026-03-27&check_out=2026-04-01&children=0&infants=0&pets=0&source_impression_id=p3_1766854428_P3ltS9Cdc3CdNR-1&previous_page_section_name=1001&federated_search_id=3b7df167-02d6-41d1-b465-6127b33d6715&_set_bev_on_new_domain=1766854386_EAMmRjNDNjNWQ3ZW&set_everest_cookie_on_new_domain=1766854386.EAY2U1ZWY5NTcyOWY2Y2.lrw5o3lqnNUDYV1sxT8XbqgVbOYdlhh_U3AX9-OIBRM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all duration-300 border border-white/20 hover:border-gold/50"
-            >
-              <span className="text-white font-medium">Voir tous les avis sur Airbnb</span>
-              <svg
-                className="w-5 h-5 text-gold group-hover:translate-x-1 transition-transform"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          {section.airbnbLink && (
+            <div className="flex justify-center mt-12">
+              <a
+                href={section.airbnbLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full transition-all duration-300 border border-white/20 hover:border-gold/50"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
+                <span className="text-white font-medium">{section.airbnbLinkText}</span>
+                <svg
+                  className="w-5 h-5 text-gold group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </section>

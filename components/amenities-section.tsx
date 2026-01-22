@@ -12,6 +12,8 @@ import {
   Sun,
   Flame,
 } from "lucide-react"
+import Image from "next/image"
+import { urlFor, type HomePageJacuzziSection } from "@/lib/sanity"
 
 const amenities = [
   { icon: Wifi, label: "WiFi Fibre", desc: "Très haut débit gratuit" },
@@ -28,7 +30,35 @@ const amenities = [
   { icon: Flame, label: "Barbecue", desc: "Électrique à disposition" },
 ]
 
-export default function AmenitiesSection() {
+// Valeurs par défaut pour la section Jacuzzi
+const defaultJacuzzi = {
+  badge: "Expérience Exclusive",
+  title: "Jacuzzi Privatif",
+  description: "Profitez de moments de détente absolue dans notre jacuzzi extérieur 6 places, ouvert toute l'année. Intégré dans une terrasse aménagée dans le parc.",
+  features: ["6 places", "Ouvert toute l'année", "Accès privatif"],
+  imageSrc: "/images/jaccuzi.jpeg",
+  imageAlt: "Jacuzzi extérieur privatif avec vue sur le vignoble",
+}
+
+interface AmenitiesSectionProps {
+  jacuzziData?: HomePageJacuzziSection
+}
+
+export default function AmenitiesSection({ jacuzziData }: AmenitiesSectionProps) {
+  // Utiliser les données Sanity ou les valeurs par défaut
+  const badge = jacuzziData?.badge || defaultJacuzzi.badge
+  const title = jacuzziData?.title || defaultJacuzzi.title
+  const description = jacuzziData?.description || defaultJacuzzi.description
+
+  // Pour les features, utiliser Sanity ou les valeurs par défaut
+  const features = jacuzziData?.features && jacuzziData.features.length > 0
+    ? jacuzziData.features
+    : defaultJacuzzi.features
+
+  // Pour l'image, utiliser Sanity ou l'image par défaut
+  const hasImage = jacuzziData?.image?.asset
+  const imageSrc = hasImage ? urlFor(jacuzziData.image!).width(800).height(800).url() : defaultJacuzzi.imageSrc
+  const imageAlt = jacuzziData?.image?.alt || defaultJacuzzi.imageAlt
   return (
     <section id="services" className="py-24 lg:py-32 bg-cream">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -59,15 +89,14 @@ export default function AmenitiesSection() {
         <div className="mt-20 bg-anthracite rounded-3xl overflow-hidden">
           <div className="grid lg:grid-cols-2 items-center">
             <div className="p-10 lg:p-16">
-              <span className="text-gold font-medium tracking-[0.2em] uppercase text-sm">Expérience Exclusive</span>
-              <h3 className="mt-4 font-serif text-3xl md:text-4xl text-white">Jacuzzi Privatif</h3>
+              <span className="text-gold font-medium tracking-[0.2em] uppercase text-sm">{badge}</span>
+              <h3 className="mt-4 font-serif text-3xl md:text-4xl text-white">{title}</h3>
               <p className="mt-6 text-white/80 text-lg leading-relaxed">
-                Profitez de moments de détente absolue dans notre jacuzzi extérieur 6 places, ouvert toute l'année.
-                Intégré dans une terrasse aménagée dans le parc.
+                {description}
               </p>
               <ul className="mt-8 space-y-3">
-                {["6 places", "Ouvert toute l'année", "Accès privatif"].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-white/90">
+                {features.map((item, index) => (
+                  <li key={index} className="flex items-center gap-3 text-white/90">
                     <div className="w-2 h-2 bg-gold rounded-full" />
                     {item}
                   </li>
@@ -76,10 +105,12 @@ export default function AmenitiesSection() {
             </div>
             <div className="relative aspect-square lg:aspect-auto lg:h-full min-h-[400px]">
               <div className="absolute inset-0 bg-gradient-to-r from-anthracite via-transparent to-transparent z-10 lg:block hidden" />
-              <img
-                src="/images/jaccuzi.jpeg"
-                alt="Jacuzzi extérieur privatif avec vue sur le vignoble"
-                className="w-full h-full object-cover"
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>

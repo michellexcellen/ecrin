@@ -146,6 +146,20 @@
   h6 {
     @apply font-serif;
   }
+
+  /* Portable Text Styles */
+  .text-portable strong {
+    @apply text-slate font-bold;
+  }
+  .text-portable p {
+    @apply mb-2;
+  }
+  .text-portable ul {
+    @apply list-disc list-inside mb-4 pl-4;
+  }
+  .text-portable li {
+    @apply mb-1;
+  }
 }
 
 /* Custom animations */

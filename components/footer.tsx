@@ -1,8 +1,11 @@
-import Image from "next/image"
+
 import Link from "next/link"
 import { MapPin, Phone, Mail } from "lucide-react"
+import { getFooterSettings } from "@/lib/sanity"
 
-export default function Footer() {
+export default async function Footer() {
+  const footer = await getFooterSettings()
+
   return (
     <footer id="contact" className="bg-anthracite text-white">
       {/* Contact Section */}
@@ -11,41 +14,39 @@ export default function Footer() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <h2 className="font-serif text-3xl text-white">l'écrin du vignoble</h2>
-              <p className="mt-6 text-white/70 max-w-md leading-relaxed">
-                Gîte luxueux avec jacuzzi au cœur du vignoble alsacien.
-                À 10 minutes d'Eguisheim, l'un des
-                plus beaux villages de France.
+              <h2 className="font-serif text-3xl text-white">
+                {footer?.brandTitle || "l'écrin du vignoble"}
+              </h2>
+              <p className="mt-6 text-white/70 max-w-md leading-relaxed whitespace-pre-line">
+                {footer?.brandDescription || "Gîte luxueux avec jacuzzi au cœur du vignoble alsacien.\nÀ 10 minutes d'Eguisheim, l'un des plus beaux villages de France."}
               </p>
             </div>
 
             {/* Contact Info */}
             <div>
-              <h3 className="font-serif text-xl mb-6">Contact</h3>
+              <h3 className="font-serif text-xl mb-6">
+                {footer?.contactTitle || "Contact"}
+              </h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                  <span className="text-white/70">
-                    l'écrin du vignoble
-                    <br />
-                    68920 Wettolsheim
-                    <br />
-                    Alsace, France
+                  <span className="text-white/70 whitespace-pre-line">
+                    {footer?.address || "l'écrin du vignoble\n68920 Wettolsheim\nAlsace, France"}
                   </span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-gold flex-shrink-0" />
-                  <a href="tel:+33681842554" className="text-white/70 hover:text-gold transition-colors">
-                    +33 6 81 84 25 54
+                  <a href={`tel:${footer?.phone || "+33681842554"}`} className="text-white/70 hover:text-gold transition-colors">
+                    {footer?.phone || "+33 6 81 84 25 54"}
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-gold flex-shrink-0" />
                   <a
-                    href="mailto:lexcellent.michel@orange.fr"
+                    href={`mailto:${footer?.email || "lexcellent.michel@orange.fr"}`}
                     className="text-white/70 hover:text-gold transition-colors"
                   >
-                    lexcellent.michel@orange.fr
+                    {footer?.email || "lexcellent.michel@orange.fr"}
                   </a>
                 </li>
               </ul>
@@ -53,7 +54,9 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div>
-              <h3 className="font-serif text-xl mb-6">Liens rapides</h3>
+              <h3 className="font-serif text-xl mb-6">
+                {footer?.linksTitle || "Liens rapides"}
+              </h3>
               <ul className="space-y-3">
                 {[
                   { href: "/", label: "Accueil" },
@@ -78,17 +81,17 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/50 text-sm">
-              © {new Date().getFullYear()} l'écrin du vignoble. Tous droits réservés.
+              © {new Date().getFullYear()} {footer?.copyright || "l'écrin du vignoble. Tous droits réservés."}
             </p>
             <div className="flex gap-6 text-sm">
-              <Link href="/mentions-legales" className="text-white/50 hover:text-white transition-colors">
-                Mentions légales
+              <Link href="/legal/mentions-legales" className="text-white/50 hover:text-white transition-colors">
+                Mentions Légales
               </Link>
-              <Link href="/confidentialite" className="text-white/50 hover:text-white transition-colors">
+              <Link href="/legal/cgv" className="text-white/50 hover:text-white transition-colors">
+                CGV
+              </Link>
+              <Link href="/legal/confidentialite" className="text-white/50 hover:text-white transition-colors">
                 Confidentialité
-              </Link>
-              <Link href="/plan-du-site" className="text-white/50 hover:text-white transition-colors">
-                Plan du site
               </Link>
             </div>
           </div>

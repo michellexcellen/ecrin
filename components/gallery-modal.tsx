@@ -3,8 +3,10 @@
 import { useState } from "react"
 import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { urlFor, type HomePageGalleryImage } from "@/lib/sanity"
 
-const photos = [
+// Photos par défaut (si pas de données Sanity)
+const defaultPhotos = [
   { src: "/images/salon.webp", alt: "Salon lumineux avec poutres en bois et canapé confortable", category: "Salon" },
   { src: "/images/salon_nuit.webp", alt: "Salon de nuit avec éclairage d'ambiance", category: "Salon" },
   { src: "/images/salon2.jpeg", alt: "Vue alternative du salon", category: "Salon" },
@@ -25,13 +27,36 @@ const photos = [
   { src: "/images/clim.jpg", alt: "Climatisation Daikin", category: "Équipements" },
 ]
 
+// Mapping des catégories Sanity vers les labels d'affichage
+const categoryLabels: Record<string, string> = {
+  interior: "Intérieur",
+  exterior: "Extérieur",
+  bedroom: "Chambres",
+  kitchen: "Cuisine",
+  bathroom: "Salle de bain",
+  jacuzzi: "Jacuzzi",
+  garden: "Jardin/Terrasse",
+  view: "Vue",
+}
+
 interface GalleryModalProps {
   isOpen: boolean
   onClose: () => void
+  images?: HomePageGalleryImage[]
 }
 
-export default function GalleryModal({ isOpen, onClose }: GalleryModalProps) {
+export default function GalleryModal({ isOpen, onClose, images }: GalleryModalProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+
+  // Convertir les images Sanity en format utilisable ou utiliser les images par défaut
+  const hasSanityImages = images && images.length > 0
+  const photos = hasSanityImages
+    ? images.map((img) => ({
+        src: urlFor(img).width(800).height(800).url(),
+        alt: img.alt || "Photo du gîte",
+        category: img.category ? categoryLabels[img.category] || img.category : "Intérieur",
+      }))
+    : defaultPhotos
 
   if (!isOpen) return null
 
