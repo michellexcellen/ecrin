@@ -53,8 +53,21 @@ export default async function LegalPage({ params }: Props) {
                 {/* Content */}
                 <section className="py-20 px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-4xl">
-                        <div className="prose prose-lg prose-slate max-w-none prose-headings:font-serif prose-headings:text-slate prose-a:text-gold prose-a:no-underline hover:prose-a:underline prose-li:marker:text-gold">
-                            <PortableText value={page.content} />
+                        <div className="prose prose-lg prose-slate max-w-none">
+                            <PortableText
+                                value={page.content}
+                                components={{
+                                    block: {
+                                        normal: ({ children }) => <p className="mb-6 leading-relaxed text-gray-700">{children}</p>,
+                                        h2: ({ children }) => <h2 className="mt-12 mb-6 font-serif text-2xl text-slate">{children}</h2>,
+                                        h3: ({ children }) => <h3 className="mt-8 mb-4 font-serif text-xl text-slate">{children}</h3>,
+                                    },
+                                    list: {
+                                        bullet: ({ children }) => <ul className="list-disc pl-5 mb-6 space-y-2">{children}</ul>,
+                                        number: ({ children }) => <ol className="list-decimal pl-5 mb-6 space-y-2">{children}</ol>,
+                                    }
+                                }}
+                            />
                         </div>
                     </div>
                 </section>

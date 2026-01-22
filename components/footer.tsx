@@ -2,6 +2,7 @@
 import Link from "next/link"
 import { MapPin, Phone, Mail } from "lucide-react"
 import { getFooterSettings } from "@/lib/sanity"
+import FooterLink from "./footer-link"
 
 export default async function Footer() {
   const footer = await getFooterSettings()
@@ -65,9 +66,9 @@ export default async function Footer() {
                   { href: "/contact", label: "Contact & Réservation" },
                 ].map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-white/70 hover:text-gold transition-colors">
+                    <FooterLink href={link.href}>
                       {link.label}
-                    </Link>
+                    </FooterLink>
                   </li>
                 ))}
               </ul>
@@ -84,15 +85,15 @@ export default async function Footer() {
               © {new Date().getFullYear()} {footer?.copyright || "l'écrin du vignoble. Tous droits réservés."}
             </p>
             <div className="flex gap-6 text-sm">
-              <Link href="/legal/mentions-legales" className="text-white/50 hover:text-white transition-colors">
+              <FooterLink href="/legal/mentions-legales" variant="legal">
                 Mentions Légales
-              </Link>
-              <Link href="/legal/cgv" className="text-white/50 hover:text-white transition-colors">
+              </FooterLink>
+              <FooterLink href="/legal/cgv" variant="legal">
                 CGV
-              </Link>
-              <Link href="/legal/confidentialite" className="text-white/50 hover:text-white transition-colors">
+              </FooterLink>
+              <FooterLink href="/legal/confidentialite" variant="legal">
                 Confidentialité
-              </Link>
+              </FooterLink>
             </div>
           </div>
         </div>
