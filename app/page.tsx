@@ -67,20 +67,46 @@ const defaultMetadata: Metadata = {
 export async function generateMetadata(): Promise<Metadata> {
   const homePage = await getHomePage()
 
-  if (!homePage?.seo) {
-    return defaultMetadata
-  }
-
-  const { metaTitle, metaDescription, keywords } = homePage.seo
+  const title = homePage?.seo?.metaTitle || defaultMetadata.title as string
+  const description = homePage?.seo?.metaDescription || defaultMetadata.description as string
+  const keywords = homePage?.seo?.keywords && homePage.seo.keywords.length > 0
+    ? homePage.seo.keywords
+    : defaultMetadata.keywords
 
   return {
-    title: metaTitle || defaultMetadata.title,
-    description: metaDescription || defaultMetadata.description,
-    keywords: keywords && keywords.length > 0 ? keywords : defaultMetadata.keywords,
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: "https://lecrinduvignoble.alsace",
+    },
     openGraph: {
-      title: metaTitle || (defaultMetadata.openGraph as any)?.title,
-      description: metaDescription || (defaultMetadata.openGraph as any)?.description,
+      title,
+      description,
       type: "website",
+      url: "https://lecrinduvignoble.alsace",
+      siteName: "l'écrin du vignoble",
+      locale: "fr_FR",
+      images: [
+        {
+          url: "https://lecrinduvignoble.alsace/images/salon.webp",
+          width: 1200,
+          height: 630,
+          alt: "Gîte l'écrin du vignoble - Salon lumineux avec vue sur le vignoble alsacien",
+        },
+        {
+          url: "https://lecrinduvignoble.alsace/images/jaccuzi.jpeg",
+          width: 1200,
+          height: 630,
+          alt: "Jacuzzi privatif 6 places du gîte en Alsace",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://lecrinduvignoble.alsace/images/salon.webp"],
     },
   }
 }

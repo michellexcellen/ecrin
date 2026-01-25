@@ -49,9 +49,12 @@ const ICON_MAP: Record<string, any> = {
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getRegionPage()
 
+  const title = page?.seo?.metaTitle || "Tourisme & Région - l'écrin du vignoble | Route des Vins, Colmar, Eguisheim"
+  const description = page?.seo?.metaDescription || "Découvrez l'Alsace depuis Wettolsheim : à 10 min d'Eguisheim (plus beau village de France), 5 km de Colmar, sur la Route des Vins. Châteaux, vignobles, gastronomie, randonnées."
+
   return {
-    title: page?.seo?.metaTitle || "Tourisme & Région - l'écrin du vignoble | Route des Vins, Colmar, Eguisheim",
-    description: page?.seo?.metaDescription || "Découvrez l'Alsace depuis Wettolsheim : à 10 min d'Eguisheim (plus beau village de France), 5 km de Colmar, sur la Route des Vins. Châteaux, vignobles, gastronomie, randonnées.",
+    title,
+    description,
     keywords: page?.seo?.keywords || [
       "Route des Vins Alsace",
       "Eguisheim",
@@ -62,10 +65,36 @@ export async function generateMetadata(): Promise<Metadata> {
       "randonnée Alsace",
       "châteaux Alsace",
     ],
+    alternates: {
+      canonical: "https://lecrinduvignoble.alsace/tourisme",
+    },
     openGraph: {
-      title: page?.seo?.metaTitle || "Tourisme & Région - l'écrin du vignoble | Découvrez l'Alsace",
-      description: page?.seo?.metaDescription || "Position idéale sur la Route des Vins : Eguisheim à 10 min, Colmar à 5 km. Vignobles, châteaux, gastronomie.",
+      title,
+      description,
       type: "website",
+      url: "https://lecrinduvignoble.alsace/tourisme",
+      siteName: "l'écrin du vignoble",
+      locale: "fr_FR",
+      images: [
+        {
+          url: "https://lecrinduvignoble.alsace/images/fall.webp",
+          width: 1200,
+          height: 630,
+          alt: "Vue panoramique sur le vignoble alsacien en automne",
+        },
+        {
+          url: "https://lecrinduvignoble.alsace/images/eguisheim.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Village d'Eguisheim sur la Route des Vins d'Alsace",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://lecrinduvignoble.alsace/images/fall.webp"],
     },
   }
 }

@@ -6,18 +6,36 @@ export const metadata: Metadata = {
   description:
     "Explorez en images notre gîte de charme à Wettolsheim. Salon spacieux, chambres confortables, jacuzzi privatif, cuisine équipée et extérieurs verdoyants.",
   keywords: ["photos gîte alsace", "galerie photo location vacances", "images jacuzzi wettolsheim", "intérieur gîte charme"],
+  alternates: {
+    canonical: "https://lecrinduvignoble.alsace/galerie",
+  },
   openGraph: {
     title: "Galerie Photos - l'écrin du vignoble",
-    description: "Découvrez l'atmosphère unique de notre gîte en images.",
+    description: "Découvrez l'atmosphère unique de notre gîte en images : salon, chambres, jacuzzi et plus encore.",
     type: "website",
+    url: "https://lecrinduvignoble.alsace/galerie",
+    siteName: "l'écrin du vignoble",
+    locale: "fr_FR",
     images: [
       {
-        url: "/images/salon.webp",
+        url: "https://lecrinduvignoble.alsace/images/salon.webp",
         width: 1200,
         height: 630,
-        alt: "Salon du gîte l'écrin du vignoble",
+        alt: "Salon lumineux du gîte l'écrin du vignoble avec poutres apparentes",
+      },
+      {
+        url: "https://lecrinduvignoble.alsace/images/jaccuzi.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Jacuzzi privatif du gîte en Alsace",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Galerie Photos - l'écrin du vignoble",
+    description: "Découvrez l'atmosphère unique de notre gîte en images.",
+    images: ["https://lecrinduvignoble.alsace/images/salon.webp"],
   },
 }
 

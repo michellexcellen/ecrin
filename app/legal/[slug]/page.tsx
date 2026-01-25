@@ -24,9 +24,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         }
     }
 
+    const title = page.seo?.metaTitle || `${page.title} - l'écrin du vignoble`
+    const description = page.seo?.metaDescription || `${page.title} du gîte l'écrin du vignoble à Wettolsheim, Alsace.`
+
     return {
-        title: page.seo?.metaTitle || page.title,
-        description: page.seo?.metaDescription || `Page légale : ${page.title}`,
+        title,
+        description,
+        alternates: {
+            canonical: `https://lecrinduvignoble.alsace/legal/${slug}`,
+        },
+        openGraph: {
+            title,
+            description,
+            type: "website",
+            url: `https://lecrinduvignoble.alsace/legal/${slug}`,
+            siteName: "l'écrin du vignoble",
+            locale: "fr_FR",
+        },
+        robots: {
+            index: true,
+            follow: true,
+        },
     }
 }
 

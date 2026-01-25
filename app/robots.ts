@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/studio/', // Disallow Sanity studio from indexing
         },
-        sitemap: 'https://ecrin-vignoble.fr/sitemap.xml',
+        sitemap: 'https://lecrinduvignoble.alsace/sitemap.xml',
     }
 }

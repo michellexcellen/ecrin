@@ -9,9 +9,13 @@ import { PortableText } from '@portabletext/react'
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getContactPage()
+
+  const title = page?.seo?.metaTitle || "Contact & Réservation - l'écrin du vignoble | Demandez votre Devis"
+  const description = page?.seo?.metaDescription || "Contactez-nous pour réserver votre séjour au gîte l'écrin du vignoble à Wettolsheim. Calculateur de devis en ligne, réponse rapide. Gîte 4 personnes avec jacuzzi en Alsace."
+
   return {
-    title: page?.seo?.metaTitle || "Contact & Réservation - l'écrin du vignoble | Demandez votre Devis",
-    description: page?.seo?.metaDescription || "Contactez-nous pour réserver votre séjour au gîte l'écrin du vignoble à Wettolsheim. Calculateur de devis en ligne, réponse rapide. Gîte 4 personnes avec jacuzzi en Alsace.",
+    title,
+    description,
     keywords: page?.seo?.keywords || [
       "réservation gîte Alsace",
       "devis location Wettolsheim",
@@ -19,10 +23,30 @@ export async function generateMetadata(): Promise<Metadata> {
       "réserver hébergement Eguisheim",
       "tarifs gîte Alsace",
     ],
+    alternates: {
+      canonical: "https://lecrinduvignoble.alsace/contact",
+    },
     openGraph: {
-      title: page?.seo?.metaTitle || "Contact & Réservation - l'écrin du vignoble",
-      description: page?.seo?.metaDescription || "Demandez votre devis personnalisé en ligne. Réponse rapide garantie.",
+      title,
+      description,
       type: "website",
+      url: "https://lecrinduvignoble.alsace/contact",
+      siteName: "l'écrin du vignoble",
+      locale: "fr_FR",
+      images: [
+        {
+          url: "https://lecrinduvignoble.alsace/images/salon.webp",
+          width: 1200,
+          height: 630,
+          alt: "Gîte l'écrin du vignoble - Réservez votre séjour en Alsace",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://lecrinduvignoble.alsace/images/salon.webp"],
     },
   }
 }
