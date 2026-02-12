@@ -1,4 +1,6 @@
 import type { Metadata } from "next"
+export const revalidate = 60
+
 import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
