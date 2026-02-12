@@ -12,7 +12,7 @@ interface FooterLinkProps {
 
 export default function FooterLink({ href, children, variant = 'quick' }: FooterLinkProps) {
     const pathname = usePathname()
-    const isActive = pathname === href
+    const isActive = href === "/" ? (pathname === "/" || pathname === "") : pathname === href
 
     if (variant === 'legal') {
         return (

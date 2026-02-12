@@ -18,6 +18,11 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
+  const isLinkActive = (href: string) => {
+    if (href === "/") return pathname === "/" || pathname === ""
+    return pathname === href
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
@@ -59,7 +64,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium tracking-wide transition-colors hover:text-gold ${pathname === link.href
+                  className={`text-sm font-medium tracking-wide transition-colors hover:text-gold ${isLinkActive(link.href)
                     ? "text-gold"
                     : isScrolled
                       ? "text-slate"
@@ -121,7 +126,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`font-serif text-3xl transition-all duration-300 ${pathname === link.href ? "text-gold" : "text-white hover:text-gold"
+                className={`font-serif text-3xl transition-all duration-300 ${isLinkActive(link.href) ? "text-gold" : "text-white hover:text-gold"
                   } ${isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{
                   transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : "0ms",
